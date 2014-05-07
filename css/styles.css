@@ -45,6 +45,9 @@ video {
     
     top: 0;
     left: 0;
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 
     background-color: black;
 
@@ -55,7 +58,7 @@ video {
 #menu li {
     display: inline-block;
     list-style-type: none;
-    padding: 0;
+    padding: 0 10px 0 10px;
     margin: 0;
 }
 
@@ -82,10 +85,12 @@ video {
 
 .subtitle {
     font-size: 25px;
+    color: white;
 }
 
 .jumbo {
     font-size: 75px;
+    color: white;
 }
 
 
@@ -97,23 +102,57 @@ video {
 .instagram {
     width: 80px;
     height: 80px;
-    display: inline-block;
+    position:absolute;
+    top: calc(50% - 75px);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.social.fixed .fb,
+.social.fixed .twitter,
+.social.fixed .instagram,
+.social.fixed .youtube {
+    top: calc(100% - 90px);
+    z-index: 1000;
+    /*-webkit-transform: rotate(360deg);*/
+    -webkit-transition: all 1s;
+    transition: all 1s;
 }
 
 .fb {
     background-image: url('img/facebook.png');
+    left: calc(50% - 225px);
+}
+
+.social.fixed .fb {
+    left: 10px;
 }
 
 .twitter {
     background-image: url('img/twitter.png');
+    left: calc(50% - 95px);
+}
+
+.social.fixed .twitter {
+    left: 115px;
 }
 
 .instagram {
     background-image: url('img/instagram.png');
+    left: calc(50% + 25px);
+}
+
+.social.fixed .instagram {
+    left: calc(100% - 195px);   
 }
 
 .youtube {
     background-image: url('img/youtube.png');
+    left: calc(50% + 155px);
+}
+
+.social.fixed .youtube {
+    left: calc(100% - 90px);
 }
 
 /*LISTEN*/

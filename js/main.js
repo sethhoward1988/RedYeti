@@ -2,13 +2,15 @@
 $(function () {
 
     $('#fullpage').fullpage({
-        anchors: ['landing', 'listen', 'photos', 'news', 'yetination', 'contact'],
+        anchors: ['landing', 'listen', 'photos', 'contact'],
         menu: '#myMenu',
         onLeave: function(index, nextIndex, direction){
-            if(index == 1 && nextIndex == 2){
+            if(index == 1 && nextIndex > 1){
                 $('#menu').addClass('fixed');
-            } else if (index == 2 && nextIndex == 1){
+                $('.social').addClass('fixed');
+            } else if (index > 1 && nextIndex == 1){
                 $('#menu').removeClass('fixed');
+                $('.social').removeClass('fixed');
             }
         },
     });
