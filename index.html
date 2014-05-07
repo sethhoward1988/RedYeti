@@ -6,20 +6,38 @@
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/fullPage.css" />
         <link rel="stylesheet" type="text/css" href="audioplayerengine/initaudioplayer-1.css">
+        <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <ul id="myMenu">
-            <li data-menuanchor="landing" class="active"><a href="#landing">landing</a></li>
-            <li data-menuanchor="listen" class="active"><a href="#listen">Listen</a></li>
-            <li data-menuanchor="photos"><a href="#photos">Photos</a></li>
-            <li data-menuanchor="news"><a href="#news">News</a></li>
-            <li data-menuanchor="yetination"><a href="#yetination">Yeti Nation</a></li>
-            <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
-        </ul>
-
-
+        <video preload="auto" autoplay="true" loop="loop" muted="muted" volume="0" src="video/RedYeti.m4v" class="light" >
+            <source type="video/mp4" src="video/RedYeti.m4v">
+        </video>
+        <div id="menu">
+            <ul>
+                <li data-menuanchor="landing" class="active"><a href="#landing">landing</a></li>
+                <li data-menuanchor="listen" class="active"><a href="#listen">Listen</a></li>
+                <li data-menuanchor="photos"><a href="#photos">Photos</a></li>
+                <li data-menuanchor="news"><a href="#news">News</a></li>
+                <li data-menuanchor="yetination"><a href="#yetination">Yeti Nation</a></li>
+                <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
         <div id="fullpage">
             <div class="section landing">
+                <div class="welcome">
+                    <div class="content">
+                        <div class="jumbo">
+                            RED YETI MUSIC
+                        </div>
+                        <div class="subtitle">
+                            Red Yeti - EP Now Available Exclusively on iTunes
+                        </div>
+                    </div>
+                    <div class="fb"></div>
+                    <div class="twitter"></div>
+                    <div class="youtube"></div>
+                    <div class="instagram"></div>
+                </div>
             </div>
 
             <div class="section listen">
@@ -32,18 +50,20 @@
                                 <div class="controls">
                                     <div class="prev"></div>
                                     <div class="play"></div>
+                                    <div class="pause" style="display:none"></div>
                                     <div class="next"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="songs">
-                            <div class="row" data-src="audios/light.mp3">1. Light Divine</div>
-                            <div class="row" data-src="audios/fixerupper.mp3">2. Fixer Upper</div>
+                            <div class="row" data-src="audios/Lay_Me_Down.mp3">Lay Me Down</div>
+                            <div class="row" data-src="audios/Ramona.mp3">Ramona</div>
+                            <div class="row" data-src="audios/Take_Us_Alive.mp3">Take Us Alive</div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="section photos">Photos</div>
             <div class="section news">News</div>
             <div class="section yetination">YetiNation</div>
@@ -57,8 +77,7 @@
         <script src="js/vendor/sketch.js"></script>
         <script src="js/vendor/underscore.js"></script>
         <script src="js/vendor/fullPage.js"></script>
+        <script src="js/audiocontrols.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/visualizer.js"></script>
-
     </body>
 </html>
