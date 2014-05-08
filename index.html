@@ -5,10 +5,11 @@
         <meta charset="utf8" />
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/fullPage.css" />
-        <link rel="stylesheet" type="text/css" href="audioplayerengine/initaudioplayer-1.css">
         <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <div class="overlay"></div>
+        <div class="lightbox"></div>
         <video preload="auto" autoplay="true" loop="loop" muted="muted" volume="0" src="video/RedYeti.m4v" class="light" >
             <source type="video/mp4" src="video/RedYeti.m4v">
         </video>
@@ -16,6 +17,7 @@
             <ul>
                 <li data-menuanchor="landing" class="active"><a href="#landing">Home</a></li>
                 <li data-menuanchor="listen" class="active"><a href="#listen">Listen</a></li>
+                <li data-menuanchor="bios" class="active"><a href="#bios">Bios</a></li>
                 <li data-menuanchor="photos"><a href="#photos">Photos</a></li>
                 <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
             </ul>
@@ -72,18 +74,50 @@
                 </div>
             </div>
 
-            <div class="section photos">Photos</div>
-            <div class="section contact">Contact</div>
+            <div class="section bios">
+
+            </div>
+
+            <div class="section photos">
+                <div class="gallery"> 
+                    <div class="thumbnails"></div>
+                </div>
+            </div>
+            <div class="section contact">
+                <div class="content">
+                    <h1>TALK TO US</h1>
+                    <div class="container">
+                        <div class="left">
+                            <ul>
+                                <li><div class="email"></div><a href="mailto:redyetitorock@gmail.com">redyetitorock@gmail.com</a></li>
+                                <li><div class="location"></div>Provo, UT</li>
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <label for="name">Name</label><br />
+                            <input id="name" type="text" name="name" /><br />
+                            <label for="email">Email</label><br />
+                            <input id="email" type="text" name="email"><br />
+                            <label for="message">Message</label><br />
+                            <textarea id="message" name="message"></textarea>
+                            <div class="button">Send It</div>
+                            <div class="info" style="display:none;">Message Sent!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Load Libraries -->
         <script src="js/vendor/jquery.js"></script>
         <script src="js/vendor/jquery.easings.min.js"></script>
         <script src="js/vendor/jquery.slimscroll.min.js"></script>
+        <script src="js/vendor/masonry.js"></script>
         <script src="js/vendor/sketch.js"></script>
         <script src="js/vendor/underscore.js"></script>
         <script src="js/vendor/fullPage.js"></script>
         <script src="js/audiocontrols.js"></script>
+        <script src="js/data.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

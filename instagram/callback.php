@@ -1,3 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Instagram API PHP Implementation demo // Popular Media</title>
+</head>
+
+<body>
+
 <?php
 /**
  * Instagram PHP API example usage.
@@ -22,10 +32,10 @@ require_once 'Instagram.php';
  * instagram provide you at http://instagr.am/developer/
  */
 $config = array(
-        'client_id' => '', // Your client id
-        'client_secret' => '', // Your client secret
+        'client_id' => 'fb03fd8520a344eab18f2f76040bff84', // Your client id
+        'client_secret' => '8328999b5d3e4bd48e34d2e0ad405cce', // Your client secret
         'grant_type' => 'authorization_code',
-        'redirect_uri' => '', // The redirect URI you provided when signed up for the service
+        'redirect_uri' => 'http://www.redyetitorock.com', // The redirect URI you provided when signed up for the service
      );
 
 // Instantiate the API handler object
@@ -38,16 +48,9 @@ $popular = $instagram->getPopularMedia();
 
 // After getting the response, let's iterate the payload
 $response = json_decode($popular, true);
+echo 'made it here!';
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="styles.css" />
-<title>Instagram API PHP Implementation demo // Popular Media</title>
-</head>
 
-<body>
 
 <h1>Popular Media</h1>
 

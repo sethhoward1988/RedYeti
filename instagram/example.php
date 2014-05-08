@@ -22,10 +22,10 @@ require_once 'Instagram.php';
  * instagram provide you at http://instagr.am/developer/
  */
 $config = array(
-        'client_id' => 'e8d6b06f7550461e897b45b02d84c23e',
-        'client_secret' => '2357fc69da344800acef2592ef647491',
+        'client_id' => 'fb03fd8520a344eab18f2f76040bff84',
+        'client_secret' => '8328999b5d3e4bd48e34d2e0ad405cce',
         'grant_type' => 'authorization_code',
-        'redirect_uri' => 'http://mauriciocuenca.com/qnktwit/confirm.php',
+        'redirect_uri' => 'http://www.redyetitorock.com',
      );
 
 /**

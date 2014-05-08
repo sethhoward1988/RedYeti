@@ -97,14 +97,14 @@ AudioPlayer.prototype = {
         }
         this.play.hide();
         this.pause.show();
-        this.title.text(this.title.text().replace(' (paused)',''));
+        // this.title.text(this.title.text().replace(' (paused)',''));
     },
 
     onPauseClick: function (evt) {
         this.analyser.audio.pause()
         this.pause.hide();
         this.play.show();
-        this.title.text(this.title.text() + ' (paused)');
+        // this.title.text(this.title.text() + ' (paused)');
     },
 
     setSong: function (song) {
