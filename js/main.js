@@ -39,21 +39,23 @@ $(function () {
     var audioPlayer = new AudioPlayer($('canvas'), $('.listen .audio-player'));
 
     function getInstagramPictures () {
-        // var url = "https://api.instagram.com/v1/users/330152032/media/recent/?access_token=330152032.fb03fd8.a0a306a2ed5549d5813027312c1edc11";
-        // $.ajax({
-        //     url: url,
-        //     type:'GET',
-        //     success: function (data) {
-        //         console.log(data);
-        //     },
-        //     error: function () {
-        //         console.log(arguments);
-        //     }
+        var url = "https://api.instagram.com/v1/users/330152032/media/recent/?access_token=330152032.fb03fd8.a0a306a2ed5549d5813027312c1edc11";
+        $.ajax({
+            url: url,
+            type:'GET',
+            contentType: "application/json",
+            dataType: 'jsonp',
+            success: function (data) {
+                success(data);
+            },
+            error: function () {
+                console.log(arguments);
+            }
 
-        // });
+        });
 
         function success (json) {
-            json = data.data;
+            json = json.data;
             var thumbnailsEl = $('.thumbnails');
             for(var i = 0; i < json.length; i++){
                 var image = $('<img src="' + json[i].images.standard_resolution.url + '" />');
@@ -66,8 +68,6 @@ $(function () {
             });
 
         }
-
-        success();
 
     }
 
