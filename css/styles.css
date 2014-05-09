@@ -27,6 +27,10 @@ video.hidden {
     margin: 0 auto;
 }
 
+.relative {
+    position: relative;
+}
+
 /*MENU*/
 
 #menu {
@@ -466,6 +470,158 @@ video.hidden {
     background-size: cover;
 }
 
+.bios .bio {
+    background-color: white;
+    height:300px;
+    width:600px;
+}
+
+.bios .window {
+    position: absolute;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    height:100px;
+    width:100px;
+    overflow: hidden;
+}
+
+.bios .window.active {
+    height:300px;
+    width:600px;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.bios .window.inactive {
+    cursor: pointer;
+}
+
+.bios .window.active {
+    left:calc(50% - 200px);
+    top:-200px;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.window:nth-child(1){
+    top:-200px;
+    left:calc(50% - 400px);
+}
+
+.window:nth-child(2){
+    top:-200px;
+    left:calc(50% - 300px);
+}
+
+.window:nth-child(3){
+    top:-100px;
+    left:calc(50% - 400px);
+}
+
+.window:nth-child(4){
+    top:-100px;
+    left:calc(50% - 300px);
+}
+
+.window:nth-child(5){
+    top:0px;
+    left:calc(50% - 400px);
+}
+
+.window:nth-child(6){
+    top:0px;
+    left:calc(50% - 300px);
+}
+
+.band-image,
+.coleman-image,
+.nick-image,
+.jared-image,
+.kimball-image,
+.isaac-image {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    vertical-align: top;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.window.active .coleman-image,
+.window.active .nick-image,
+.window.active .jared-image,
+.window.active .kimball-image,
+.window.active .isaac-image{
+    width: 285px;
+    height: 300px;
+    background-size: 300px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.band-image {
+    background-image: url('img/redyetilogo.png');
+    background-color: white;
+    background-size: 99px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.window.active .band-image {
+    background-size: 285px;
+    width: 285px;
+    height: 300px;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.coleman-image {
+    background-image: url('img/coleman.jpg');
+    background-size: 300px;
+    background-position: -90px -73px;
+}
+
+.nick-image {
+    background-image: url('img/nick.jpg');
+    background-size: 258px;
+    background-position: -61px -42px;
+}
+
+.jared-image {
+    background-image: url('img/jared.jpg');
+    background-size: 164px;
+    background-position: -31px -26px;
+}
+
+.kimball-image {
+    background-image: url('img/kimball.jpg');
+    background-size: 420px;
+    background-position: -190px -41px;
+}
+
+.isaac-image {
+    background-image: url('img/isaac.jpg');
+    background-size: 438px;
+    background-position: -166px 0px;
+}
+
+
+.bio-text {
+    padding: 0 5px;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    overflow: auto;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+.bio-text h1 {
+    font-size: 15px;
+    text-align: center;
+}
 
 
 
