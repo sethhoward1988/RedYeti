@@ -57,7 +57,12 @@ $(function () {
                         $('.audio-player').addClass('fixed');    
                     });
                 }
-                
+            }
+
+            if(nextIndex == 4){
+                $('.social .youtube').addClass('subscribe-position');
+            } else {
+                $('.social .youtube').removeClass('subscribe-position');
             }
 
             menu.removeClass('active');

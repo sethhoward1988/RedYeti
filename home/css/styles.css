@@ -147,7 +147,7 @@ video.hidden {
 .social.fixed .instagram,
 .social.fixed .youtube {
     top: calc(100% - 90px);
-    /*-webkit-transform: rotate(360deg);*/
+    -webkit-transform: rotate(360deg);
     -webkit-transition: all 1s;
     transition: all 1s;
 }
@@ -184,8 +184,19 @@ video.hidden {
     left: calc(50% + 155px);
 }
 
+.social .youtube.subscribe-position {
+    left: calc(50% - 125px) !important;
+    top: calc(50% + 200px) !important;
+    -webkit-transform: rotate(0deg);
+}
+
 .social.fixed .youtube {
     left: calc(100% - 90px);
+}
+
+.youtube-subscribe {
+    margin-top:20px;
+    margin-left: 75px;
 }
 
 /*LISTEN*/
@@ -221,6 +232,7 @@ video.hidden {
     top: calc(50% + 25px);
     color: white !important;
     position: absolute;
+    z-index: 10000;
 }
 
 fb-container iframe {

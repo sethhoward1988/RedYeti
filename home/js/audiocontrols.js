@@ -15,6 +15,10 @@ AudioPlayer.prototype = {
         this.setBindings();
         this.setEvents();
         this.buildQueue();
+        if(!this.isSupported){
+            this.player.addClass('not-supported');
+            $('.section.listen').addClass('not-supported');
+        }
         this.play = $(this.player.find('.play'));
         this.pause = $(this.player.find('.pause'));
         this.title = $(this.player.find('.title'));
@@ -57,7 +61,7 @@ AudioPlayer.prototype = {
                     return false;
                 }
             });
-            this.setSong(song);
+            this.onPlayClick(song);
         }
     },
 
@@ -90,9 +94,13 @@ AudioPlayer.prototype = {
         this.setSong(this.queue[this.currentIndex]);
     },
 
-    onPlayClick: function (evt) {
+    onPlayClick: function (evt, song) {
         if(!this.analyser){
-            this.setSong(this.queue[this.currentIndex]);
+            if(song){
+                this.setSong(song);
+            } else {
+                this.setSong(this.queue[this.currentIndex]);    
+            }
         } else {
             this.analyser.audio.play();
         }
@@ -125,7 +133,7 @@ AudioPlayer.prototype = {
 
         song.el.addClass('active');
 
-        this.analyser = new AudioAnalyser(song.path, this.NUM_BANDS, this.SMOOTHING);
+        this.analyser = new AudioAnalyser(song.path, this.NUM_BANDS, this.SMOOTHING, this.isSupported);
         
         this.analyser.onUpdate = (function(_this) {
           return function(bands) {
@@ -199,7 +207,7 @@ AudioAnalyser = (function() {
 
   AudioAnalyser.enabled = AudioAnalyser.AudioContext != null;
 
-  function AudioAnalyser(audio, numBands, smoothing) {
+  function AudioAnalyser(audio, numBands, smoothing, isSupported) {
     var src;
     this.audio = audio != null ? audio : new Audio();
     this.numBands = numBands != null ? numBands : 256;
@@ -210,31 +218,34 @@ AudioAnalyser = (function() {
       this.audio.controls = true;
       this.audio.src = src;
     }
-    this.context = new AudioAnalyser.AudioContext();
-    if(this.context.createJavaScriptNode){
-        this.jsNode = this.context.createJavaScriptNode(2048, 1, 1);
-    } else {
-        this.jsNode = this.context.createScriptProcessor(2048, 1, 1);
+
+    if(isSupported){
+        this.context = new AudioAnalyser.AudioContext();
+        if(this.context.createJavaScriptNode){
+            this.jsNode = this.context.createJavaScriptNode(2048, 1, 1);
+        } else {
+            this.jsNode = this.context.createScriptProcessor(2048, 1, 1);
+        }
+        this.analyser = this.context.createAnalyser();
+        this.analyser.smoothingTimeConstant = this.smoothing;
+        this.analyser.fftSize = this.numBands * 2;
+        this.bands = new Uint8Array(this.analyser.frequencyBinCount);
+        this.audio.addEventListener('canplay', (function(_this) {
+          return function() {
+            _this.source = _this.context.createMediaElementSource(_this.audio);
+            _this.source.connect(_this.analyser);
+            _this.analyser.connect(_this.jsNode);
+            _this.jsNode.connect(_this.context.destination);
+            _this.source.connect(_this.context.destination);
+            return _this.jsNode.onaudioprocess = function() {
+              _this.analyser.getByteFrequencyData(_this.bands);
+              if (!_this.audio.paused) {
+                return typeof _this.onUpdate === "function" ? _this.onUpdate(_this.bands) : void 0;
+              }
+            };
+          };
+        })(this));
     }
-    this.analyser = this.context.createAnalyser();
-    this.analyser.smoothingTimeConstant = this.smoothing;
-    this.analyser.fftSize = this.numBands * 2;
-    this.bands = new Uint8Array(this.analyser.frequencyBinCount);
-    this.audio.addEventListener('canplay', (function(_this) {
-      return function() {
-        _this.source = _this.context.createMediaElementSource(_this.audio);
-        _this.source.connect(_this.analyser);
-        _this.analyser.connect(_this.jsNode);
-        _this.jsNode.connect(_this.context.destination);
-        _this.source.connect(_this.context.destination);
-        return _this.jsNode.onaudioprocess = function() {
-          _this.analyser.getByteFrequencyData(_this.bands);
-          if (!_this.audio.paused) {
-            return typeof _this.onUpdate === "function" ? _this.onUpdate(_this.bands) : void 0;
-          }
-        };
-      };
-    })(this));
   }
 
   AudioAnalyser.prototype.start = function() {
