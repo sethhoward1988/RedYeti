@@ -725,6 +725,11 @@ fb-container iframe {
     transition: all 1s;
 }
 
+.window.inactive:hover div[class*='-image']{
+    box-shadow: inset 0px 0px 7px 2px red;
+    transition: none;
+}
+
 .band-image {
     background-image: url('img/redyetilogo.png');
     background-color: white;
