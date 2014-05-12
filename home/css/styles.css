@@ -19,6 +19,7 @@ video {
 
 video.hidden {
     z-index: -999;
+    display: none;
 }
 
 .content {
@@ -116,18 +117,28 @@ video.hidden {
 .arrow-down {
     position: absolute;
     bottom: 15px;
-    left: calc(50% - 10px);
+    left: calc(50% - 15px);
     width: 0; 
     height: 0; 
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #f00;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 30px solid #f00;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+.arrow-down.pop {
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 50px solid #f00;
+    left: calc(50% - 25px);
     -webkit-transition: all 1s;
     transition: all 1s;
 }
 
 .arrow-down.hidden {
-    bottom: -20px;
+    bottom: -40px;
 }
 
 
@@ -474,7 +485,8 @@ fb-container iframe {
 
 /*Photos*/
 
-.photos {
+.photos,
+.merch {
     background-color: white;
 }
 
@@ -484,10 +496,9 @@ fb-container iframe {
 
 .thumbnails img {
     display: inline-block;
-    width: 150px;
-    height: 150px;
+    width: 400px;
+    height: 400px;
     margin: 10px;
-    cursor: pointer;
     -webkit-transition: all .2s;
     transition: all .2s;
 }

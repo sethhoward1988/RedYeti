@@ -34,7 +34,7 @@ $(function(){
 
     }
 
-    getInstagramPictures();
+    // getInstagramPictures();
 
     function lightBoxPhoto(data) {
 

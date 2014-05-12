@@ -9,7 +9,7 @@ $(function () {
     var menu = $('#menu li');
 
     $('#fullpage').fullpage({
-        anchors: ['landing', 'licensing', 'bios', 'videos','photos', 'contact'],
+        anchors: ['landing', 'licensing', 'bios', 'videos','merch', 'contact'],
         menu: '#myMenu',
         onLeave: function (index, nextIndex, direction) {
 
@@ -72,8 +72,20 @@ $(function () {
 
     });
 
+    var arrow = $('.arrow-down');
+
+    arrow.on('click', function (){
+        $.fn.fullpage.moveSectionDown();
+    });
+
     setTimeout(function(){
-        $('.arrow-down').removeClass('hidden');
+        arrow.removeClass('hidden');
+        setTimeout(function(){
+            arrow.addClass('pop');
+            setTimeout(function(){
+                arrow.removeClass('pop');
+            },500)
+        },500)
     },3000);
 
 });
