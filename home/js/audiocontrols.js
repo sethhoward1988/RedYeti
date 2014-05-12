@@ -70,7 +70,7 @@ AudioPlayer.prototype = {
         var songs = this.player.find('.row');
         for(var i = 0; i < songs.length; i++){
             this.queue.push({
-                title: $(songs[i]).text(),
+                title: $(songs[i]).find('.title').text(),
                 path: $(songs[i]).attr('data-src'),
                 el: $(songs[i])
             });
